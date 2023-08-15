@@ -1,15 +1,12 @@
 spring:
-
   h2:
     console:
       enabled: true
-
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
     username: sa
     password:
-
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
@@ -19,7 +16,15 @@ spring:
         format_sql: true
         show_sql: true
     defer-datasource-initialization: true
-
+  jwt:
+    header: Authorization
+#    HS512 알고리즘을 사용할 것이기 때문에 secret key는 512bit, 즉 64byte 이상을 사용해야 합니다.
+    #터미널에서 secret key를 base64로 인코딩하여 secret 항목에 채워넣습니다.
+#    echo ‘silvernine-tech-spring-boot-jwt-tutorial-secret-silvernine-tech-spring-boot-jwt-tutorial-secret’|base64
+    secret: 4oCYc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXTigJkK
+    # 24 hours
+    token-validity-in-seconds: 86400
+# FATAL ERROR WARN INFO DEBUG TRACE ALL
 logging:
   level:
     me.silvernine: DEBUG
