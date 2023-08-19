@@ -46,7 +46,7 @@ public class SecurityConfig {
                 )
 
                 .authorizeHttpRequests(authorizeHttpRequests -> {
-                    String[] permitAllPatterns = {"/api/hello", "/api/authenticate", "/api/signup"};
+                    String[] permitAllPatterns = {"/api/hello", "/api/authenticate", "/api/signup", "/error"};
                             authorizeHttpRequests
                                     .requestMatchers(permitAllPatterns).permitAll()
                                     .requestMatchers(PathRequest.toH2Console()).permitAll()
