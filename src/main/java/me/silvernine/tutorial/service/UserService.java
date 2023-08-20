@@ -26,7 +26,8 @@ public class UserService {
      */
     @Transactional
     public User signup(UserDto userDto) {
-        if (userRepository.findOneWithAuthoritiesByUsername(userDto.getUsername()).orElse(null) != null) {
+        User user1 = userRepository.findOneWithAuthoritiesByUsername(userDto.getUsername()).orElse(null);
+        if (user1 != null) {
             throw new RuntimeException("이미 가입되어 있는 유저입니다.");
         }
 
